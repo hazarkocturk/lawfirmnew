@@ -30,7 +30,7 @@ export const HeroSection = () => {
                 Get started
               </Link>
               <Link
-                href="#"
+                href="#contact"
                 className="px-6 items-center h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 duration-100 ease-linear flex justify-center w-full sm:w-auto"
               >
                 Book a call
