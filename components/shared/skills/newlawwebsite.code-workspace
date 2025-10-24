@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "newlawwebsite",
+			"path": "../../.."
+		},
+		{
+			"name": "lawfirm",
+			"path": "../../../../lawfirm"
+		},
+		{
+			"name": "nextauthudemy",
+			"path": "../../../../nextauthudemy"
+		}
+	]
+}
