@@ -104,7 +104,7 @@ const BlogSection = () => {
         <div className="text-center space-y-6 max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold dark:text-white capitalize">Çalışma Alanlarımız</h1>
           <p className="dark:text-white">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit perferendis eos amet eum repudiandae aspernatur mollitia quos consectetur voluptatibus pariatur
+          Hukukun çeşitli alanlarında uzmanlaşmış ekibimizle, müvekkillerimize geniş kapsamlı hizmetler sunuyoruz. İşte başlıca çalışma alanlarımız:
           </p>
         </div>
 
@@ -117,14 +117,15 @@ const BlogSection = () => {
         <div className="flex justify-center">
         <Dialog>
         <DialogTrigger asChild>
-          <Button className="px-6 cursor-pointer items-center h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 duration-100 ease-linear flex justify-center w-full sm:w-auto">See More</Button>
+          <Button className="px-6 cursor-pointer items-center h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 duration-100 ease-linear flex justify-center w-full sm:w-auto">Daha Fazla</Button>
         </DialogTrigger>
         <DialogContent >
           <DialogHeader className="flex w-full justify-center items-center">
             <DialogTitle className="text-3xl font-bold dark:text-white capitalize">Çalışma Alarımız</DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
+              <p className="dark:text-white mt-2 mb-6 text-center">
+              Hukukun çeşitli alanlarında uzmanlaşmış ekibimizle, müvekkillerimize geniş kapsamlı hizmetler sunuyoruz. İşte başlıca çalışma alanlarımız:
+              </p>
             </DialogDescription>
           </DialogHeader>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">

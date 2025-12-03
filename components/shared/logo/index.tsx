@@ -1,15 +1,17 @@
-import Image from "next/image"
-import logo from "@/public/logo.png"
+import Image from "next/image";
+import logo from "@/public/logo.png";
 
 export const Logo = () => {
-    return (
-        <div className="relative w-40 md:w-56 aspect-[4/1]">
-        <Image
+  return (
+    <div className="relative w-60 md:w-80">
+      <Image
         src={logo}
         alt="Logo"
-        fill
-        className="dark:invert"
-        />
-        </div>
-    )
-}
+        width={320}
+        height={80}
+        priority
+        className="dark:invert h-auto w-full"
+      />
+    </div>
+  );
+};

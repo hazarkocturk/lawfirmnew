@@ -75,12 +75,10 @@ export default function SendFormComponent() {
     <section className="mx-auto p-8 max-w-[1440px] flex flex-col gap-y-6" id="contact">
                <div className="text-center space-y-6 max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold dark:text-white capitalize">
-            Bize Ulasin
+            Bize Ulaşın
           </h1>
           <p className="dark:text-white">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit
-            perferendis eos amet eum repudiandae aspernatur mollitia quos
-            consectetur voluptatibus pariatur
+            Sorularınız mı var? Size yardımcı olmaktan memnuniyet duyarız. Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz.
           </p>
         </div>
 

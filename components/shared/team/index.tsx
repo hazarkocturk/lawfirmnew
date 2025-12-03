@@ -96,12 +96,10 @@ const TeamSection = () => {
       <div className="flex flex-col gap-y-6">
         <div className="text-center space-y-6 max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold dark:text-white capitalize">
-          Çalışanlarımız
+          Ekibimiz
           </h1>
           <p className="dark:text-white">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit
-            perferendis eos amet eum repudiandae aspernatur mollitia quos
-            consectetur voluptatibus pariatur
+          Profesyonel ve deneyimli ekibimizle tanışın. Hukukun farklı alanlarında uzmanlaşmış avukatlarımız, müvekkillerimize en iyi hizmeti sunmak için burada.
           </p>
         </div>
 

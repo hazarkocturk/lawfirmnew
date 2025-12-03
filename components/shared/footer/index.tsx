@@ -28,7 +28,7 @@ const FooterBlock = () => {
             <div className="flex flex-col gap-2">
               <p className="flex gap-2 items-center">
                 <MapPinPlusInside />
-                <span>Atac 1 Sokak 5/6 Kizilay / Ankara</span>
+                <span>Mustafa Kemal Mahallesi Barış Sitesi <br></br>2161. Sokak No:6 Çankaya Ankara</span>
               </p>
               <Link
                 href="tel:+903124356886"
@@ -71,7 +71,7 @@ const FooterBlock = () => {
           </div>
           <div className="sm:col-start-2 sm:col-end-2 sm:row-start-1 sm:row-end-1 col-start-1 col-end-1 row-start-2 row-end-2">
           <nav role="navigation" aria-label="Main" className="flex flex-col gap-2">
-            <h3 className="font-semibold text-2xl">Baglantılar</h3>
+            <h3 className="font-semibold text-2xl">Bağlantılar</h3>
                 <ul className="flex flex-col gap-2 items-start lg:w-full lg:justify-center">
   
                   {navItems.map(
@@ -95,8 +95,7 @@ const FooterBlock = () => {
           </div>
 
           <div className="w-full h-[300px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 sm:col-start-1 sm:col-end-3 sm:row-start-2 sm:row-end-2 lg:col-start-3 lg:row-start-1">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.764147852263!2d32.856102077386275!3d39.924293971523085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34e540eb85283%3A0x99ce57a282ec9f7d!2zQXRhw6ctMSBTay4sIMOHYW5rYXlhL0Fua2FyYSwgVMO8cmtpeWU!5e0!3m2!1str!2sbe!4v1761289674195!5m2!1str!2sbe"
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.382990910869!2d32.75846369999999!3d39.9104446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d347cb05088987%3A0x4f6d8dbc5af82e1b!2sKocturk%26Sahin%20Hukuk%20Burosu!5e0!3m2!1str!2sbe!4v1764672846971!5m2!1str!2sbe"
               width="300"
               height="300"
               allowFullScreen
@@ -109,7 +108,7 @@ const FooterBlock = () => {
       </div>
       <div className="py-3 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-3xl mx-auto px-5 sm:px-10 md:px-12 lg:px-5 flex justify-center text-center">
-          <p> © 2025 Kocturk&Sahin Hukuk Burosu </p>
+          <p> © 2025 Koçtürk & Şahin Hukuk Bürosu </p>
         </div>
       </div>
     </section>

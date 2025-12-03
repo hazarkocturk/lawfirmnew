@@ -10,33 +10,34 @@ export const HeroSection = () => {
       <section className="overflow-x-hidden" id="hero">
         <div className="mx-auto p-8 max-w-[1440px] grid lg:grid-cols-2 lg:items-center gap-10">
           <div className="flex flex-col space-y-8 sm:space-y-10 lg:items-center text-center lg:text-left max-w-2xl md:max-w-3xl mx-auto">
-            <h1 className=" font-semibold leading-tight dark:text-white text-4xl sm:text-5xl lg:text-6xl">
-              We&apos;ll be happy to take care of{" "}
+            <h1 className="font-semibold leading-tight dark:text-white text-4xl sm:text-5xl lg:text-6xl">
+              Hukuki ihtiyaçlarınızda{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-700 to-orange-800">
-                your work.
+                güvenilir çözüm ortağınızız.
               </span>
             </h1>
-            <p className=" flex text-gray-700 dark:text-gray-300 tracking-tight md:font-normal max-w-xl mx-auto lg:max-w-none">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem molestiae soluta ipsa incidunt expedita rem!
-              Suscipit molestiae voluptatem iure, eum alias nobis velit quidem
-              reiciendis saepe nostrum
+            <p className="flex text-gray-700 dark:text-gray-300 tracking-tight md:font-normal max-w-xl mx-auto lg:max-w-none">
+              Alanında uzman ekibimizle bireysel ve kurumsal müvekkillerimize,
+              hukuki süreçlerin her aşamasında profesyonel destek sağlıyoruz.
+              Haklarınızı korumak ve ihtiyaçlarınıza özel çözümler sunmak için
+              titizlikle çalışıyoruz.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
               <Link
-                href="#"
+                href="#skills"
                 className="px-6 items-center h-12 rounded-3xl bg-pink-600 hover:bg-pink-800 text-white duration-100 ease-linear flex justify-center w-full sm:w-auto"
               >
-                Get started
+                Hizmetlerimizi İnceleyin
               </Link>
               <Link
                 href="#contact"
                 className="px-6 items-center h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 duration-100 ease-linear flex justify-center w-full sm:w-auto"
               >
-                Book a call
+                İletişime Geçin
               </Link>
             </div>
           </div>
+
           <div className="w-full hidden sm:flex aspect-square lg:aspect-auto h-[30rem] lg:h-[35rem] relative">
             <div className="w-3/5 h-[80%] rounded-3xl overflow-clip border-8 border-gray-200 dark:border-gray-950 z-30">
               <Image
@@ -57,8 +58,9 @@ export const HeroSection = () => {
               />
             </div>
           </div>
+
           <div className="w-full flex sm:hidden aspect-square relative">
-            <div className="w-full  rounded-3xl overflow-clip border-8 border-gray-200 dark:border-gray-950 z-30">
+            <div className="w-full rounded-3xl overflow-clip border-8 border-gray-200 dark:border-gray-950 z-30">
               <Image
                 src={img}
                 alt="building plan image"
