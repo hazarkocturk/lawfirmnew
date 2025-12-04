@@ -23,7 +23,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Hakkımızda", href: "#hero" },
     { name: "Çalışma Alanlarımız", href: "#skills" },
-    { name: "Çalışanlarımız", href: "#team" },
+    { name: "Ekibimiz", href: "#team" },
     { name: "İletişim", href: "#contact" }
   ];
 
@@ -37,7 +37,7 @@ const Navbar = () => {
               <span className="hidden sm:flex">+90 312 435 68 86</span>
             </Link>
 
-            <Link href="mailto:info@kocturksahinhukuk.com?subject=İletişim&body=Merhaba%20Hazar,"className="flex gap-1 items-center duration-300 ease-linear hover:text-pink-600">
+            <Link href="mailto:kocturksahinhukukburosu@gmail.com?subject=İletişim&body=Merhaba%20Hazar,"className="flex gap-1 items-center duration-300 ease-linear hover:text-pink-600">
               <Mail />
               <span className="hidden sm:flex">kocturksahinhukuk.com</span>
             </Link>

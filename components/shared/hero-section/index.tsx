@@ -12,8 +12,8 @@ export const HeroSection = () => {
           <div className="flex flex-col space-y-8 sm:space-y-10 lg:items-center text-center lg:text-left max-w-2xl md:max-w-3xl mx-auto">
             <h1 className="font-semibold leading-tight dark:text-white text-4xl sm:text-5xl lg:text-6xl">
               Hukuki ihtiyaçlarınızda{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-tr from-pink-700 to-orange-800">
-                güvenilir çözüm ortağınızız.
+              <span className="text-transparent bg-clip-text bg-pink-700 ">
+                güvenilir çözüm ortağınız.
               </span>
             </h1>
             <p className="flex text-gray-700 dark:text-gray-300 tracking-tight md:font-normal max-w-xl mx-auto lg:max-w-none">
@@ -27,13 +27,13 @@ export const HeroSection = () => {
                 href="#skills"
                 className="px-6 items-center h-12 rounded-3xl bg-pink-600 hover:bg-pink-800 text-white duration-100 ease-linear flex justify-center w-full sm:w-auto"
               >
-                Hizmetlerimizi İnceleyin
+                Hizmetlerimizi inceleyin
               </Link>
               <Link
                 href="#contact"
                 className="px-6 items-center h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 duration-100 ease-linear flex justify-center w-full sm:w-auto"
               >
-                İletişime Geçin
+                İletişime geçin
               </Link>
             </div>
           </div>

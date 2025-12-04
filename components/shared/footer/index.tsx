@@ -13,7 +13,7 @@ const FooterBlock = () => {
   const navItems = [
     { name: "Hakkımızda", href: "#hero" },
     { name: "Çalışma Alanlarımız", href: "#skills" },
-    { name: "Çalışanlarımız", href: "#team" },
+    { name: "Ekibimiz", href: "#team" },
     { name: "İletişim", href: "#contact" }
   ];
 

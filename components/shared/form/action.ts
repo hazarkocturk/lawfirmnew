@@ -26,8 +26,8 @@ export async function SendForm(data: ContactFormData) {
 
     // Asıl mail gönderme işlemi
     const response = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: "av.hazarkocturk@gmail.com",
+      from: "İletişim <iletisim@kocturksahinhukuk.com>",
+      to: "kocturksahinhukukburosu@gmail.com",
       subject: `Yeni İletişim Formu - ${data.firstname} ${data.lastname}`,
       text: `
 Ad: ${data.firstname}
@@ -52,4 +52,3 @@ Mesaj: ${data.message}
     return { success: false, error: (error as Error).message };
   }
 }
-
