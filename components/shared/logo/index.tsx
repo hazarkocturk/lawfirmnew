@@ -3,7 +3,7 @@ import logo from "@/public/logo.png";
 
 export const Logo = () => {
   return (
-    <div className="relative w-60 md:w-80">
+    <div className="relative w-50 md:w-80">
       <Image
         src={logo}
         alt="Logo"

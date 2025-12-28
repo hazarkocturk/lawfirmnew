@@ -10,12 +10,12 @@ import {
 } from "lucide-react";
 
 const FooterBlock = () => {
-  const navItems = [
-    { name: "Hakkımızda", href: "#hero" },
-    { name: "Çalışma Alanlarımız", href: "#skills" },
-    { name: "Ekibimiz", href: "#team" },
-    { name: "İletişim", href: "#contact" }
-  ];
+  // const navItems = [
+  //   { name: "Hakkımızda", href: "#hero" },
+  //   { name: "Çalışma Alanlarımız", href: "#skills" },
+  //   { name: "Ekibimiz", href: "#team" },
+  //   { name: "İletişim", href: "#contact" }
+  // ];
 
   return (
     <section className="">
@@ -69,7 +69,7 @@ const FooterBlock = () => {
               </div>
             </div>
           </div>
-          <div className="sm:col-start-2 sm:col-end-2 sm:row-start-1 sm:row-end-1 col-start-1 col-end-1 row-start-2 row-end-2">
+          {/* <div className="sm:col-start-2 sm:col-end-2 sm:row-start-1 sm:row-end-1 col-start-1 col-end-1 row-start-2 row-end-2">
           <nav role="navigation" aria-label="Main" className="flex flex-col gap-2">
             <h3 className="font-semibold text-2xl">Bağlantılar</h3>
                 <ul className="flex flex-col gap-2 items-start lg:w-full lg:justify-center">
@@ -92,9 +92,9 @@ const FooterBlock = () => {
                 </ul>
               </nav>
 
-          </div>
+          </div> */}
 
-          <div className="w-full h-[300px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 sm:col-start-1 sm:col-end-3 sm:row-start-2 sm:row-end-2 lg:col-start-3 lg:row-start-1">
+          <div className="w-full h-[300px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 sm:col-start-1 sm:col-end-2 sm:row-start-2 sm:row-end-2 lg:col-start-2 lg:row-start-1">
          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3060.382990910869!2d32.75846369999999!3d39.9104446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d347cb05088987%3A0x4f6d8dbc5af82e1b!2sKocturk%26Sahin%20Hukuk%20Burosu!5e0!3m2!1str!2sbe!4v1764672846971!5m2!1str!2sbe"
               width="300"
               height="300"

@@ -14,7 +14,7 @@ import { StaticImageData } from "next/image";
 export interface Member {
   title: string;
   position: string;
-  cover: StaticImageData;
+  cover: StaticImageData | string;
 }
 // --- Card
 const TeamCard = ({ cover, title, position }: Member) => {
@@ -70,13 +70,20 @@ const team = [
   {
     image: TeamMember3,
     name: "Ayşegül Bulut Şahin",
-    position: "Avukat",
+    position: "Yönetici Avukat",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.",
   },
   {
     image: TeamMember4,
     name: "Beyza Arslan",
+    position: "Avukat",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.",
+  },
+  {
+    image: "",
+    name: "Elif Bilal",
     position: "Avukat",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.",
@@ -90,32 +97,84 @@ const team = [
   },
 ];
 
+// const TeamSection = () => {
+//   return (
+//     <section className="mx-auto p-8 max-w-[1440px]" id="team">
+//       <div className="flex flex-col gap-y-6">
+//         <div className="text-center space-y-6 max-w-2xl mx-auto">
+//           <h1 className="text-3xl font-bold dark:text-white capitalize">
+//           Ekibimiz
+//           </h1>
+//           <p className="dark:text-white">
+//           Profesyonel ve deneyimli ekibimizle tanışın. Hukukun farklı alanlarında uzmanlaşmış avukatlarımız, müvekkillerimize en iyi hizmeti sunmak için burada.
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+//           {team.map((member) => (
+//             <TeamCard
+//               title={member.name}
+//               cover={member.image}
+//               key={member.name}
+//               {...member}
+//             />
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
 const TeamSection = () => {
   return (
     <section className="mx-auto p-8 max-w-[1440px]" id="team">
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-10">
         <div className="text-center space-y-6 max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold dark:text-white capitalize">
-          Ekibimiz
+            Ekibimiz
           </h1>
           <p className="dark:text-white">
-          Profesyonel ve deneyimli ekibimizle tanışın. Hukukun farklı alanlarında uzmanlaşmış avukatlarımız, müvekkillerimize en iyi hizmeti sunmak için burada.
+            Profesyonel ve deneyimli ekibimizle tanışın. Hukukun farklı alanlarında
+            uzmanlaşmış avukatlarımız, müvekkillerimize en iyi hizmeti sunmak için
+            burada.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {team.map((member) => (
-            <TeamCard
-              title={member.name}
-              cover={member.image}
-              key={member.name}
-              {...member}
-            />
+        {/* ROW 1 – 1 kart */}
+        <div className="flex justify-center">
+          <div className="max-w-xs w-full">
+            <TeamCard {...team[0]} title={team[0].name} cover={team[0].image} />
+          </div>
+        </div>
+
+        {/* ROW 2 – 2 kart */}
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center ">
+          {[team[1], team[2]].map((member) => (
+            <div key={member.name} className="max-w-xs w-full mx-auto">
+              <TeamCard title={member.name} cover={member.image} {...member} />
+            </div>
           ))}
+        </div>
+
+        {/* ROW 3 – 2 kart */}
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center">
+          {[team[3], team[4]].map((member) => (
+            <div key={member.name} className="max-w-xs w-full mx-auto">
+              <TeamCard title={member.name} cover={member.image} {...member} />
+            </div>
+          ))}
+        </div>
+
+        {/* ROW 4 – 1 kart */}
+        <div className="flex justify-center">
+          <div className="max-w-xs w-full">
+            <TeamCard {...team[5]} title={team[5].name} cover={team[5].image} />
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
 
 export default TeamSection;

@@ -3,6 +3,15 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { Toaster } from "sonner";
 
+import { Roboto_Condensed } from "next/font/google";
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ["latin"],
+  variable: "--font-roboto-condensed",
+  weight: ["300", "400", "700"],
+});
+
+
 export const metadata: Metadata = {
   title: "Koçtürk Şahin Hukuk Bürosu",
   description: "Koçtürk & Şahin Hukuk Bürosu - Güvenilir Hukuki Çözümler",
@@ -15,7 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+     <body className={`${robotoCondensed.variable} antialiased`}>
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

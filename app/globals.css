@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -120,8 +122,5 @@
     @apply bg-background text-foreground;
 
   }
- html, body {
-  font-family: Georgia, "Times New Roman", Times, serif !important;
-}
 }
 
