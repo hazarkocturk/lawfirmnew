@@ -1,209 +1,3 @@
-// "use client";
-
-// import { Button } from "@/components/ui/button";
-// import {
-//   Form,
-//   FormControl,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-// } from "@/components/ui/form";
-// import { Input } from "@/components/ui/input";
-// import { Textarea } from "@/components/ui/textarea";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { useForm } from "react-hook-form";
-// import { z } from "zod";
-// import { SendForm } from "./action";
-// import { toast } from "sonner"; 
-// import Image from "next/image";
-// import cover from "@/public/firmbee-com-SpVHcbuKi6E-unsplash.jpg";
-
-// const formSchema = z.object({
-//   firstname: z.string().min(2, "İsim en az 2 karakter olmalı"),
-//   lastname: z.string().min(2, "Soyisim en az 2 karakter olmalı"),
-//   email: z.string().email("Geçerli bir e-posta adresi girin"),
-//   phonenumber: z
-//     .string()
-//     .min(10, "Telefon numarası en az 10 haneli olmalı")
-//     .regex(/^[0-9+()\s-]+$/, "Geçerli bir telefon numarası girin"),
-//   message: z.string().min(5, "Mesaj en az 5 karakter olmalı"),
-// });
-
-// export default function SendFormComponent() {
-//   const form = useForm<z.infer<typeof formSchema>>({
-//     resolver: zodResolver(formSchema),
-//     defaultValues: {
-//       firstname: "",
-//       lastname: "",
-//       email: "",
-//       phonenumber: "",
-//       message: "",
-//     },
-//   });
-
-//   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
-//     const toastId = toast.loading("Mesaj gönderiliyor..."); 
-//     try {
-//       const result = await SendForm(data);
-  
-//       if (result.success) {
-
-//         toast.success("Mesajınız başarıyla gönderildi ✅", {
-//           id: toastId,
-//           description: "En kısa sürede sizinle iletişime geçeceğiz.",
-//         });
-//         form.reset();
-//       } else {
-
-//         toast.error("Gönderim başarısız ❌", {
-//           id: toastId,
-//           description: result.error || "Bir hata oluştu.",
-//         });
-//       }
-//     } catch (error) {
-//       toast.error("Beklenmedik bir hata oluştu ❌", {
-//         id: toastId,
-//         description: (error as Error).message,
-//       });
-//     }
-//   };
-  
-
-//   return (
-//     <div className="bg-gray-50 dark:bg-background">
-//     <section className="mx-auto p-8 max-w-[1440px] flex flex-col gap-y-6" id="contact">
-//                <div className="text-center space-y-6 max-w-2xl mx-auto">
-//           <h1 className="text-3xl font-bold dark:text-white capitalize">
-//             Bize Ulaşın
-//           </h1>
-//           <p className="dark:text-white">
-//             Sorularınız mı var? Size yardımcı olmaktan memnuniyet duyarız. Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz.
-//           </p>
-//         </div>
-
-//       <div className="grid grid-rows-[repeat(2,minmax(0,auto))] md:grid-cols-2 md:grid-rows-1 gap-8 items-stretch pt-4">
-//       <div className="w-full hidden sm:flex aspect-square lg:aspect-auto h-[30rem] lg:h-[35rem] relative">
-//             <div className="w-3/5 h-[80%] absolute right-0 rounded-3xl overflow-clip border-8 border-gray-200 dark:border-gray-950 z-30">
-//               <Image
-//                 src={cover}
-//                 alt="contact-form-image"
-//                 width={1300}
-//                 height={1300}
-//                 className="w-full h-full object-cover z-30"
-//               />
-//             </div>
-//             <div className="absolute left-0 bottom-0 h-[calc(100%-50px)] w-3/5 sm:w-4/5 rounded-3xl overflow-clip border-4 border-gray-200 dark:border-gray-800 z-10">
-//               <Image
-//                 src={cover}
-//                 alt="contact-form-image"
-//                 height={1300}
-//                 width={1300}
-//                 className="z-10 w-full h-full object-cover"
-//               />
-//             </div>
-//           </div>
-//           <div className="w-full flex sm:hidden h-72 relative">
-//             <div className="w-full  rounded-3xl overflow-clip border-8 border-gray-200 dark:border-gray-950 z-30">
-//               <Image
-//                 src={cover}
-//                 alt="contact-form-image"
-//                 width={1300}
-//                 height={1300}
-//                 className="w-full h-full object-cover z-30"
-//               />
-//             </div>
-//           </div>
-//         <div className="w-full h-full flex flex-col ">
-//         <Form {...form} >
-//           <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
-//             <fieldset disabled={form.formState.isSubmitting} className="flex flex-col gap-4">
-              
-//               {/* İsim ve Soyisim */}
-//               <div className="flex flex-col sm:flex-row gap-4">
-//                 <FormField
-//                   control={form.control}
-//                   name="firstname"
-//                   render={({ field }) => (
-//                     <FormItem className="w-full">
-//                       <FormLabel>İsim</FormLabel>
-//                       <FormControl>
-//                         <Input {...field} placeholder="Adınızı girin" className="h-12"/>
-//                       </FormControl>
-//                       <FormMessage />
-//                     </FormItem>
-//                   )}
-//                 />
-//                 <FormField
-//                   control={form.control}
-//                   name="lastname"
-//                   render={({ field }) => (
-//                     <FormItem className="w-full">
-//                       <FormLabel>Soyisim</FormLabel>
-//                       <FormControl>
-//                         <Input {...field} placeholder="Soyadınızı girin" className="h-12"/>
-//                       </FormControl>
-//                       <FormMessage />
-//                     </FormItem>
-//                   )}
-//                 />
-//               </div>
-
-//               <FormField
-//                 control={form.control}
-//                 name="email"
-//                 render={({ field }) => (
-//                   <FormItem>
-//                     <FormLabel>E-posta</FormLabel>
-//                     <FormControl>
-//                       <Input {...field} type="email" placeholder="ornek@mail.com" className="h-12"/>
-//                     </FormControl>
-//                     <FormMessage />
-//                   </FormItem>
-//                 )}
-//               />
-
-//               <FormField
-//                 control={form.control}
-//                 name="phonenumber"
-//                 render={({ field }) => (
-//                   <FormItem>
-//                     <FormLabel>Telefon</FormLabel>
-//                     <FormControl>
-//                       <Input {...field} type="tel" placeholder="+90 5XX XXX XX XX" className="h-12"/>
-//                     </FormControl>
-//                     <FormMessage />
-//                   </FormItem>
-//                 )}
-//               />
-
-//               <FormField
-//                 control={form.control}
-//                 name="message"
-//                 render={({ field }) => (
-//                   <FormItem>
-//                     <FormLabel>Mesaj</FormLabel>
-//                     <FormControl>
-//                       <Textarea {...field} rows={10} placeholder="Mesajınızı yazın..." className="h-52"/>
-//                     </FormControl>
-//                     <FormMessage />
-//                   </FormItem>
-//                 )}
-//               />
-
-//               <Button className="w-auto self-start px-6 cursor-pointer h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 duration-100 ease-linear" type="submit" disabled={form.formState.isSubmitting}>
-//                 Gönder
-//               </Button>
-//             </fieldset>
-//           </form>
-//         </Form>
-//         </div>
-//       </div>
-//     </section>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -252,6 +46,7 @@ export default function SendFormComponent() {
     const toastId = toast.loading("Mesaj gönderiliyor...");
     try {
       const result = await SendForm(data);
+
       if (result.success) {
         toast.success("Mesajınız başarıyla gönderildi ✅", {
           id: toastId,
@@ -273,38 +68,50 @@ export default function SendFormComponent() {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-background">
+    <div className="bg-brand-cream/60">
       <section
         id="contact"
-        className="relative mx-auto max-w-[1440px] px-8 py-16 overflow-hidden"
+        className="relative mx-auto max-w-360 px-8 py-16 overflow-hidden"
       >
-        {/* Background image – sola ağırlıklı */}
+        {/* Background */}
         <div className="absolute inset-0 z-0">
           <Image
             src={cover}
             alt="contact background"
             fill
             priority
-            className="object-cover object-[15%_center] opacity-40"
+            className="object-cover object-[15%_center]"
           />
-          <div className="absolute inset-0 bg-white/60 dark:bg-black/60" />
+          {/* Lacivert overlay */}
+          <div className="absolute inset-0 bg-brand-navy/80" />
         </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center gap-y-8">
-          {/* Başlık */}
-          <div className="text-center space-y-6 max-w-2xl">
-            <h1 className="text-3xl font-bold dark:text-white capitalize">
+          {/* Header */}
+          <div className="text-center space-y-4 max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-white capitalize">
               Bize Ulaşın
-            </h1>
-            <p className="dark:text-white">
+            </h2>
+            <p className="text-brand-cream">
               Sorularınız mı var? Size yardımcı olmaktan memnuniyet duyarız.
               Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz.
             </p>
           </div>
 
-          {/* Form */}
-          <div className="w-full max-w-lg bg-white/60 dark:bg-gray-900/60 backdrop-blur-md rounded-2xl p-6 shadow-lg">
+          {/* Form Card */}
+          <div
+            className="
+              w-full
+              max-w-xl lg:max-w-2xl
+              bg-brand-white/10
+              border border-brand-gold/30
+              backdrop-blur-md
+              rounded-2xl
+              p-6 sm:p-8 lg:p-10
+              shadow-xl shadow-black/20
+            "
+          >
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(handleSubmit)}
@@ -314,17 +121,28 @@ export default function SendFormComponent() {
                   disabled={form.formState.isSubmitting}
                   className="flex flex-col gap-4"
                 >
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
                       name="firstname"
                       render={({ field }) => (
                         <FormItem className="w-full">
-                          <FormLabel>İsim</FormLabel>
+                          <FormLabel className="text-brand-cream">İsim</FormLabel>
                           <FormControl>
-                            <Input {...field} className="h-12" />
+                            <Input
+                              {...field}
+                              placeholder="Adınız"
+                              className="
+                                h-12
+                                bg-brand-white/90
+                                border border-brand-gold/25
+                                text-brand-navy
+                                placeholder:text-gray-500
+                                focus-visible:ring-2 focus-visible:ring-brand-gold/50
+                              "
+                            />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-brand-cream" />
                         </FormItem>
                       )}
                     />
@@ -333,11 +151,24 @@ export default function SendFormComponent() {
                       name="lastname"
                       render={({ field }) => (
                         <FormItem className="w-full">
-                          <FormLabel>Soyisim</FormLabel>
+                          <FormLabel className="text-brand-cream">
+                            Soyisim
+                          </FormLabel>
                           <FormControl>
-                            <Input {...field} className="h-12" />
+                            <Input
+                              {...field}
+                              placeholder="Soyadınız"
+                              className="
+                                h-12
+                                bg-brand-white/90
+                                border border-brand-gold/25
+                                text-brand-navy
+                                placeholder:text-gray-500
+                                focus-visible:ring-2 focus-visible:ring-brand-gold/50
+                              "
+                            />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-brand-cream" />
                         </FormItem>
                       )}
                     />
@@ -348,11 +179,25 @@ export default function SendFormComponent() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>E-posta</FormLabel>
+                        <FormLabel className="text-brand-cream">
+                          E-posta
+                        </FormLabel>
                         <FormControl>
-                          <Input {...field} type="email" className="h-12" />
+                          <Input
+                            {...field}
+                            type="email"
+                            placeholder="ornek@mail.com"
+                            className="
+                              h-12
+                              bg-brand-white/90
+                              border border-brand-gold/25
+                              text-brand-navy
+                              placeholder:text-gray-500
+                              focus-visible:ring-2 focus-visible:ring-brand-gold/50
+                            "
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-brand-cream" />
                       </FormItem>
                     )}
                   />
@@ -362,11 +207,25 @@ export default function SendFormComponent() {
                     name="phonenumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Telefon</FormLabel>
+                        <FormLabel className="text-brand-cream">
+                          Telefon
+                        </FormLabel>
                         <FormControl>
-                          <Input {...field} type="tel" className="h-12" />
+                          <Input
+                            {...field}
+                            type="tel"
+                            placeholder="+90 5XX XXX XX XX"
+                            className="
+                              h-12
+                              bg-brand-white/90
+                              border border-brand-gold/25
+                              text-brand-navy
+                              placeholder:text-gray-500
+                              focus-visible:ring-2 focus-visible:ring-brand-gold/50
+                            "
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-brand-cream" />
                       </FormItem>
                     )}
                   />
@@ -376,11 +235,23 @@ export default function SendFormComponent() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Mesaj</FormLabel>
+                        <FormLabel className="text-brand-cream">Mesaj</FormLabel>
                         <FormControl>
-                          <Textarea {...field} rows={6} />
+                          <Textarea
+                            {...field}
+                            rows={7}
+                            placeholder="Mesajınızı yazın..."
+                            className="
+                              min-h-44
+                              bg-brand-white/90
+                              border border-brand-gold/25
+                              text-brand-navy
+                              placeholder:text-gray-500
+                              focus-visible:ring-2 focus-visible:ring-brand-gold/50
+                            "
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-brand-cream" />
                       </FormItem>
                     )}
                   />
@@ -388,10 +259,26 @@ export default function SendFormComponent() {
                   <Button
                     type="submit"
                     disabled={form.formState.isSubmitting}
-                    className="self-center cursor-pointer px-6 h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-200 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 transition"
+                    className="
+                      mt-2
+                      self-center
+                      px-8
+                      h-12
+                      rounded-3xl
+                      bg-brand-gold
+                      text-brand-navy
+                      hover:bg-brand-gold/90
+                      transition
+                      font-medium
+                    "
                   >
                     Gönder
                   </Button>
+
+                  <p className="text-center text-xs text-brand-cream/80">
+                    Gönder’e tıklayarak sizinle iletişime geçmemizi kabul etmiş
+                    olursunuz.
+                  </p>
                 </fieldset>
               </form>
             </Form>
@@ -401,4 +288,3 @@ export default function SendFormComponent() {
     </div>
   );
 }
-

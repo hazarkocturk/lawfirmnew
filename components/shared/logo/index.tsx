@@ -3,14 +3,14 @@ import logo from "@/public/logo.png";
 
 export const Logo = () => {
   return (
-    <div className="relative w-50 md:w-80">
+    <div className="relative w-45 md:w-65 h-auto">
       <Image
         src={logo}
         alt="Logo"
-        width={320}
-        height={80}
+        width={240}
+        height={40}
         priority
-        className="dark:invert h-auto w-full"
+        className="h-auto w-full"
       />
     </div>
   );

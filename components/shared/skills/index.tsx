@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Building,
   Building2,
@@ -11,21 +13,10 @@ import {
   Stethoscope,
   UserLock,
   Users,
-  X,
 } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { JSX } from "react";
-import { Button } from "@/components/ui/button";
-// import {
-//   Dialog,
-//   DialogClose,
-//   DialogContent,
-//   DialogDescription,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -33,6 +24,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
 import imgDanismanlik from "@/public/hukuk sitesi fotolari/danismanlik.jpeg";
 import img_arabul from "@/public/hukuk sitesi fotolari/arabuluculuk.jpg";
 import img_aile from "@/public/hukuk sitesi fotolari/aile.jpg";
@@ -46,56 +38,62 @@ import img_ceza from "@/public/hukuk sitesi fotolari/ceza.jpg";
 import img_kooperatif from "@/public/hukuk sitesi fotolari/kooperatif.webp";
 import img_katmulkiyeti from "@/public/hukuk sitesi fotolari/kat-mulkiyeti.jpg";
 
-import { StaticImageData } from "next/image";
-
 export interface Post {
   icon: JSX.Element;
   title: string;
   description: string;
-  cover: StaticImageData | string;
+  cover?: StaticImageData; // cover yoksa undefined olsun
 }
+
 // --- Card
 const BlogCard = ({ cover, icon, title, description }: Post) => {
   return (
-    <div
+    <article
       className="
-    h-full flex flex-col
-      bg-white rounded-2xl dark:bg-gray-900 
-      shadow-lg shadow-gray-200/50 dark:shadow-transparent 
-      border border-gray-200/50 dark:border-gray-800/50 
-      overflow-hidden
-      transform transition-transform duration-300 ease-out
-      hover:scale-[1.03] hover:shadow-xl
-    "
+        h-full flex flex-col
+        bg-brand-white rounded-2xl
+        shadow-lg shadow-gray-200/40
+        border border-brand-gold/20
+        overflow-hidden
+        transform transition duration-300 ease-out
+        hover:-translate-y-1 hover:shadow-xl
+      "
     >
-      {/* {cover ? ( */}
-      <Image
-        src={cover}
-        alt={title}
-        width={650}
-        height={700}
-        className="w-full lg:aspect-[5/3] aspect-[6/4]  object-cover bg-gray-100 dark:bg-gray-900 rounded-t-2xl"
-      />
-      {/* //   ) : null } */}
+      {/* Cover */}
+      {cover ? (
+        <div className="relative w-full lg:aspect-[5/3] aspect-[6/4]">
+          <Image
+            src={cover}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+          {/* Hafif lacivert overlay */}
+          <div className="absolute inset-0 bg-brand-navy/15" />
+        </div>
+      ) : (
+        <div className="w-full lg:aspect-[5/3] aspect-[6/4] bg-brand-cream" />
+      )}
+
+      {/* Content */}
       <div className="relative lg:p-6 lg:pt-10 p-4 pt-8">
-        <div className="absolute right-4 -top-6 lg:-top-8  bg-pink-600 p-2 lg:p-4 rounded-md text-white flex">
+        {/* Icon badge */}
+        <div className="absolute right-4 -top-6 lg:-top-8 bg-brand-gold p-2 lg:p-4 rounded-md text-brand-navy flex shadow-md">
           {icon}
         </div>
+
         <div className="flex flex-col gap-2">
-          <h3 className="lg:text-xl font-semibold text-gray-900 dark:text-white">
-            {title}
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
-            {description}
-          </p>
+          <h3 className="lg:text-xl font-semibold text-brand-navy">{title}</h3>
+          <p className="text-gray-600 text-sm line-clamp-2">{description}</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
 // --- Data
-const posts = [
+const posts: Post[] = [
   {
     icon: <Speech />,
     title: "Danışmanlık",
@@ -113,8 +111,7 @@ const posts = [
   {
     icon: <Scale />,
     title: "Ceza Hukuku",
-    description:
-      "Şikayet ve suç duyurusu başvuruları... temsil hizmeti sunuyoruz.",
+    description: "Şikayet ve suç duyurusu başvuruları... temsil hizmeti sunuyoruz.",
     cover: img_ceza,
   },
   {
@@ -127,15 +124,13 @@ const posts = [
   {
     icon: <House />,
     title: "Gayrimenkul Hukuku",
-    description:
-      "Alım satım, kiralama, tapu iptal/tescil... hizmetleri sunuyoruz.",
+    description: "Alım satım, kiralama, tapu iptal/tescil... hizmetleri sunuyoruz.",
     cover: img_gayrimenkul,
   },
   {
     icon: <Building />,
     title: "Kat Mülkiyeti Hukuku",
-    description:
-      "Apartman/site yönetimi uyuşmazlıklarında çözüm odaklı danışmanlık.",
+    description: "Apartman/site yönetimi uyuşmazlıklarında çözüm odaklı danışmanlık.",
     cover: img_katmulkiyeti,
   },
   {
@@ -148,8 +143,7 @@ const posts = [
   {
     icon: <Factory />,
     title: "Şirketler Hukuku",
-    description:
-      "Kuruluş, birleşme/devralma gibi ticari işlemlerde hukuki destek.",
+    description: "Kuruluş, birleşme/devralma gibi ticari işlemlerde hukuki destek.",
     cover: img_sirketler,
   },
   {
@@ -173,131 +167,65 @@ const posts = [
   {
     icon: <KeyRound />,
     title: "Kişisel Verilerin Korunması Hukuku",
-    description:
-      "KVKK başvuruları, envanter ve metinler, sözleşmelerin revizesi.",
+    description: "KVKK başvuruları, envanter ve metinler, sözleşmelerin revizesi.",
     cover: img_kvkk,
   },
   {
     icon: <Scale />,
     title: "İdare Hukuku",
     description: "İdari işlemler, itirazlar ve davalar konusunda hukuki destek.",
-    cover: "",
   },
   {
-    icon : <PenTool />,
+    icon: <PenTool />,
     title: "Sendika Hukuku",
     description: "Sendika kuruluşu, toplu iş sözleşmeleri ve uyuşmazlıklar.",
-    cover: "",
   },
   {
-    icon : <Building />,
-    title: "Fikri ve Sinai Mülkiyet Hukuku",
+    icon: <Building />,
+    title: "Fikri ve Sınai Mülkiyet Hukuku",
     description: "Telif hakları, patent, marka tescili ve ihlallerine karşı koruma.",
-    cover: "",},
-    {
-      icon: <Stethoscope />,
-      title: "Sigorta Hukuku",
-      description:
-        "Sigorta poliçeleri, tazminat talepleri ve uyuşmazlıklarında hukuki danışmanlık.",
-      cover: "",
-    }
+  },
+  {
+    icon: <Stethoscope />,
+    title: "Sigorta Hukuku",
+    description:
+      "Sigorta poliçeleri, tazminat talepleri ve uyuşmazlıklarında hukuki danışmanlık.",
+  },
 ];
-
-// function sampleRandom(arr: Post[], n: number): Post[] {
-//     const copy = [...arr];
-//     for (let i = copy.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [copy[i], copy[j]] = [copy[j], copy[i]];
-//     }
-//     return copy.slice(0, n);
-// }
-
-// const BlogSection = () => {
-//   const selected = sampleRandom(posts, 4);
-
-//   return (
-//     <div className="bg-gray-50 dark:bg-background">
-//     <section className="mx-auto p-8 max-w-[1440px]" id="skills">
-//       <div className="flex flex-col gap-y-6">
-//         <div className="text-center space-y-6 max-w-2xl mx-auto">
-//           <h1 className="text-3xl font-bold dark:text-white capitalize">Çalışma Alanlarımız</h1>
-//           <p className="dark:text-white">
-//           Hukukun çeşitli alanlarında uzmanlaşmış ekibimizle, müvekkillerimize geniş kapsamlı hizmetler sunuyoruz. İşte başlıca çalışma alanlarımız:
-//           </p>
-//         </div>
-
-//         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-//           {selected.map((post) => (
-//             <BlogCard key={post.title} {...post} />
-//           ))}
-//         </div>
-
-//         <div className="flex justify-center">
-//         <Dialog>
-//         <DialogTrigger asChild>
-//           <Button className="px-6 cursor-pointer items-center h-12 rounded-3xl text-pink-700 border border-gray-100 dark:border-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900 dark:hover:bg-gray-700 duration-100 ease-linear flex justify-center w-full sm:w-auto">Daha fazla</Button>
-//         </DialogTrigger>
-//         <DialogContent >
-//           <DialogHeader className="flex w-full justify-center items-center">
-//             <DialogTitle className="text-3xl font-bold dark:text-white capitalize">Çalışma Alarımız</DialogTitle>
-//             <DialogDescription>
-//               <p className="dark:text-white mt-2 mb-6 text-center">
-//               Hukukun çeşitli alanlarında uzmanlaşmış ekibimizle, müvekkillerimize geniş kapsamlı hizmetler sunuyoruz. İşte başlıca çalışma alanlarımız:
-//               </p>
-//             </DialogDescription>
-//           </DialogHeader>
-//           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-//           {posts.map((post) => (
-//             <BlogCard key={post.title} {...post} />
-//           ))}
-//         </div>
-//           <DialogFooter>
-//             <DialogClose asChild>
-//               <Button variant="outline" className="cursor-pointer"><X size={50}/></Button>
-//             </DialogClose>
-//           </DialogFooter>
-//         </DialogContent>
-
-//     </Dialog>
-//         </div>
-//       </div>
-//     </section>
-//     </div>
-//   );
-// };
 
 const BlogSection = () => {
   return (
-    <div className="bg-gray-50 dark:bg-background">
+    <div className="bg-brand-cream/60">
       <section className="mx-auto p-8 max-w-[1440px]" id="skills">
         <div className="flex flex-col gap-y-10">
-          <div className="text-center space-y-6 max-w-2xl mx-auto">
-            <h1 className="text-3xl font-bold dark:text-white capitalize">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-brand-navy capitalize">
               Çalışma Alanlarımız
-            </h1>
-            <p className="dark:text-white">
-              Hukukun çeşitli alanlarında uzmanlaşmış ekibimizle,
-              müvekkillerimize geniş kapsamlı hizmetler sunuyoruz. İşte başlıca
-              çalışma alanlarımız:
+            </h2>
+            <p className="text-gray-700">
+              Hukukun çeşitli alanlarında uzmanlaşmış ekibimizle, müvekkillerimize
+              geniş kapsamlı hizmetler sunuyoruz. İşte başlıca çalışma alanlarımız:
             </p>
           </div>
 
           <Carousel
-            opts={{ align: "start", loop: false, containScroll: "trimSnaps" }}
+            opts={{ loop: true, containScroll: "trimSnaps" }}
+            plugins={[
+              Autoplay({
+                delay: 2500,
+              }),
+            ]}
             className="w-full relative"
           >
-         
-            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-20" />
-            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-20" />
+            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-20 border-brand-gold/40 text-brand-navy hover:bg-brand-gold/15" />
+            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-20 border-brand-gold/40 text-brand-navy hover:bg-brand-gold/15" />
 
-      
-            <CarouselContent className="-ml-4 px-10">
+            <CarouselContent>
               {posts.map((post) => (
                 <CarouselItem
                   key={post.title}
                   className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 >
-      
                   <div className="h-full">
                     <BlogCard {...post} />
                   </div>
