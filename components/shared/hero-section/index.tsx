@@ -35,16 +35,22 @@ export const HeroSection = () => {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[75vh] overflow-hidden flex items-center"
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <Image src={img} alt="hero background" fill priority className="object-cover" />
+        <Image
+          src={img}
+          alt="hero background"
+          fill
+          priority
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-brand-navy/80" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl px-6 text-center flex flex-col items-center space-y-8">
+      {/* Content (Çözüm 2: padding ile yerleşim) */}
+      <div className="relative z-10 w-full max-w-4xl px-6 mx-auto text-center flex flex-col items-center space-y-6 pt-28 pb-20">
         <h1
           ref={titleRef}
           className="font-medium leading-tight text-brand-white text-4xl sm:text-5xl lg:text-6xl"
@@ -54,10 +60,10 @@ export const HeroSection = () => {
         </h1>
 
         <p ref={textRef} className="text-brand-cream max-w-2xl text-lg">
-          Alanında uzman ekibimizle bireysel ve kurumsal müvekkillerimize, hukuki
-          süreçlerin her aşamasında profesyonel destek sağlıyoruz. Haklarınızı
-          korumak ve ihtiyaçlarınıza özel çözümler sunmak için titizlikle
-          çalışıyoruz.
+          Alanında uzman ekibimizle bireysel ve kurumsal müvekkillerimize,
+          hukuki süreçlerin her aşamasında profesyonel destek sağlıyoruz.
+          Haklarınızı korumak ve ihtiyaçlarınıza özel çözümler sunmak için
+          titizlikle çalışıyoruz.
         </p>
 
         <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4">
