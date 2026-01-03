@@ -3,10 +3,13 @@
 import {
   Building,
   Building2,
+  Car,
+  Crown,
   Factory,
   HardHat,
   House,
   KeyRound,
+  LibraryBig,
   PenTool,
   Scale,
   Speech,
@@ -37,6 +40,9 @@ import img_tuketici from "@/public/hukuk sitesi fotolari/tuketici.jpg";
 import img_ceza from "@/public/hukuk sitesi fotolari/ceza.jpg";
 import img_kooperatif from "@/public/hukuk sitesi fotolari/kooperatif.webp";
 import img_katmulkiyeti from "@/public/hukuk sitesi fotolari/kat-mulkiyeti.jpg";
+import img_sendika from "@/public/hukuk sitesi fotolari/sendika.jpg";
+import img_fikri from "@/public/hukuk sitesi fotolari/fikri-sinai.jpg";
+import img_sigorta from "@/public/hukuk sitesi fotolari/sigorta.jpg";
 
 export interface Post {
   icon: JSX.Element;
@@ -61,7 +67,7 @@ const BlogCard = ({ cover, icon, title, description }: Post) => {
     >
       {/* Cover */}
       {cover ? (
-        <div className="relative w-full lg:aspect-[5/3] aspect-[6/4]">
+        <div className="relative w-full lg:aspect-5/3 aspect-6/4">
           <Image
             src={cover}
             alt={title}
@@ -73,7 +79,7 @@ const BlogCard = ({ cover, icon, title, description }: Post) => {
           <div className="absolute inset-0 bg-brand-navy/15" />
         </div>
       ) : (
-        <div className="w-full lg:aspect-[5/3] aspect-[6/4] bg-brand-cream" />
+        <div className="w-full lg:aspect-5/3 aspect-6/4 bg-brand-cream" />
       )}
 
       {/* Content */}
@@ -171,32 +177,35 @@ const posts: Post[] = [
     cover: img_kvkk,
   },
   {
-    icon: <Scale />,
+    icon: <LibraryBig />,
     title: "İdare Hukuku",
     description: "İdari işlemler, itirazlar ve davalar konusunda hukuki destek.",
   },
   {
-    icon: <PenTool />,
+    icon: <Speech />,
     title: "Sendika Hukuku",
     description: "Sendika kuruluşu, toplu iş sözleşmeleri ve uyuşmazlıklar.",
+    cover: img_sendika,
   },
   {
-    icon: <Building />,
+    icon: <Crown />,
     title: "Fikri ve Sınai Mülkiyet Hukuku",
     description: "Telif hakları, patent, marka tescili ve ihlallerine karşı koruma.",
+    cover: img_fikri,
   },
   {
-    icon: <Stethoscope />,
+    icon: <Car />,
     title: "Sigorta Hukuku",
     description:
       "Sigorta poliçeleri, tazminat talepleri ve uyuşmazlıklarında hukuki danışmanlık.",
+    cover: img_sigorta,
   },
 ];
 
 const BlogSection = () => {
   return (
     <div className="bg-brand-cream/60">
-      <section className="mx-auto p-8 max-w-[1440px]" id="skills">
+      <section className="mx-auto p-8 max-w-360" id="skills">
         <div className="flex flex-col gap-y-10">
           <div className="text-center space-y-4 max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-brand-navy capitalize">

@@ -10,23 +10,24 @@ export interface Member {
   title: string;
   position: string;
   cover?: StaticImageData; // boş olabilsin
+  objectPosition?: string;
 }
 
 // --- Card
-const TeamCard = ({ cover, title, position }: Member) => {
+const TeamCard = ({ cover, title, position, objectPosition }: Member) => {
   return (
     <Card
       className="
-        bg-brand-white rounded-2xl
-        shadow-lg shadow-gray-200/40
-        border border-brand-gold/20
+        bg-brand-white rounded-xl
+        shadow-md shadow-gray-200/30
+        border border-brand-gold/25
         overflow-hidden
         transform transition duration-300 ease-out
-        hover:-translate-y-1 hover:shadow-xl
+        hover:-translate-y-0.5 hover:shadow-lg
       "
     >
       <CardContent className="p-0">
-        <div className="grid grid-rows-[80%_20%] md:aspect-3/5 aspect-3/4">
+        <div className="grid grid-rows-[72%_28%] aspect-[3/3.8]">
           <div className="relative w-full h-full">
             {cover ? (
               <>
@@ -34,20 +35,25 @@ const TeamCard = ({ cover, title, position }: Member) => {
                   src={cover}
                   alt={title}
                   fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 280px"
+                  className="object-cover"
+                  style={{
+                    objectPosition
+                  }}
+                  sizes="(max-width: 768px) 100vw, 240px"
                 />
-                {/* hafif lacivert overlay (fotoğrafı kurumsallaştırır) */}
-                <div className="absolute inset-0 bg-brand-navy/5" />
+                {/* Daha koyu lacivert overlay */}
+                <div className="absolute inset-0 bg-brand-navy/18" />
               </>
             ) : (
               <div className="absolute inset-0 bg-brand-cream" />
             )}
           </div>
 
-          <div className="p-6 flex flex-col justify-center">
-            <h3 className="lg:text-xl font-semibold text-brand-navy">{title}</h3>
-            <p className="text-gray-600 text-sm">{position}</p>
+          <div className="px-4 py-4 flex flex-col justify-center">
+            <h3 className="text-base lg:text-lg font-semibold text-brand-navy">
+              {title}
+            </h3>
+            <p className="text-gray-600 text-xs">{position}</p>
           </div>
         </div>
       </CardContent>
@@ -55,27 +61,32 @@ const TeamCard = ({ cover, title, position }: Member) => {
   );
 };
 
+
 // --- Data
 const team = [
   {
     image: TeamMember1,
     name: "Ülkü Koçtürk",
     position: "Kurucu Avukat",
+    objectPosition: "50% 25%",
   },
   {
     image: TeamMember2,
     name: "Mehmet Şahin",
     position: "Kurucu Avukat",
+    objectPosition: "50% 20%",
   },
   {
     image: TeamMember3,
     name: "Ayşegül Bulut Şahin",
     position: "Yönetici Avukat",
+    objectPosition: "top",
   },
   {
     image: TeamMember4,
     name: "Beyza Arslan",
     position: "Avukat",
+    objectPosition: "top",
   },
   {
     image: undefined, // boşsa undefined bırak
@@ -86,6 +97,7 @@ const team = [
     image: TeamMember5,
     name: "Arzu Deniz Kır",
     position: "Ofis Koordinatörü",
+    objectPosition: "top",
   },
 ];
 
@@ -111,6 +123,7 @@ const TeamSection = () => {
                 title={team[0].name}
                 position={team[0].position}
                 cover={team[0].image}
+                objectPosition={team[0].objectPosition}
               />
             </div>
           </div>
@@ -123,6 +136,7 @@ const TeamSection = () => {
                   title={member.name}
                   position={member.position}
                   cover={member.image}
+                  objectPosition={member.objectPosition}
                 />
               </div>
             ))}
@@ -136,6 +150,7 @@ const TeamSection = () => {
                   title={member.name}
                   position={member.position}
                   cover={member.image}
+                  objectPosition={member.objectPosition}
                 />
               </div>
             ))}
@@ -148,6 +163,7 @@ const TeamSection = () => {
                 title={team[5].name}
                 position={team[5].position}
                 cover={team[5].image}
+                objectPosition={team[5].objectPosition}
               />
             </div>
           </div>
