@@ -35,7 +35,7 @@ export const HeroSection = () => {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[75vh] overflow-hidden flex items-center"
+      className="relative min-h-[55vh] overflow-hidden flex items-center"
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
@@ -50,7 +50,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Content (Çözüm 2: padding ile yerleşim) */}
-      <div className="relative z-10 w-full max-w-4xl px-6 mx-auto text-center flex flex-col items-center space-y-6 pt-28 pb-20">
+      <div className="relative z-10 w-full max-w-4xl px-6 mx-auto text-center flex flex-col items-center space-y-6 py-10 md:py-24">
         <h1
           ref={titleRef}
           className="font-medium leading-tight text-brand-white text-4xl sm:text-5xl lg:text-6xl"
