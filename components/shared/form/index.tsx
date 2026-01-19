@@ -71,7 +71,7 @@ export default function SendFormComponent() {
     <div className="bg-brand-cream/60">
       <section
         id="contact"
-        className="relative mx-auto max-w-360 px-8 py-16 overflow-hidden"
+        className="relative px-8 py-16 overflow-hidden"
       >
         {/* Background */}
         <div className="absolute inset-0 z-0">

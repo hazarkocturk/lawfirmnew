@@ -4,6 +4,7 @@ import TeamMember2 from "@/public/mehmetsahin.jpeg";
 import TeamMember3 from "@/public/aysegulbulutsahin.jpeg";
 import TeamMember4 from "@/public/beyzaarslan.jpeg";
 import TeamMember5 from "@/public/arzudenizkir.jpeg";
+import TeamMember6 from "@/public/elifbilal.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 
 export interface Member {
@@ -89,9 +90,10 @@ const team = [
     objectPosition: "top",
   },
   {
-    image: undefined, // boşsa undefined bırak
+    image: TeamMember6, 
     name: "Elif Bilal",
     position: "Avukat",
+    objectPosition: "50% 15%",
   },
   {
     image: TeamMember5,
@@ -103,8 +105,8 @@ const team = [
 
 const TeamSection = () => {
   return (
-    <section className="mx-auto p-8 max-w-360 bg-brand-cream" id="team">
-      <div className="flex flex-col gap-y-10">
+    <section className="bg-brand-cream" id="team">
+      <div className="mx-auto max-w-360 flex flex-col p-8 gap-y-10">
         <div className="text-center space-y-6 max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-brand-navy capitalize">Ekibimiz</h2>
           <p className="text-gray-700">
