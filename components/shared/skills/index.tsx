@@ -1,5 +1,8 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Building,
   Building2,
@@ -202,12 +205,42 @@ const posts: Post[] = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 const BlogSection = () => {
+  const headingRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (!headingRef.current) return;
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          Array.from(headingRef.current!.children),
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="bg-brand-cream/60">
       <section className="mx-auto p-8 max-w-360" id="skills">
         <div className="flex flex-col gap-y-10">
-          <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <div ref={headingRef} className="text-center space-y-4 max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-brand-navy capitalize">
               Çalışma Alanlarımız
             </h2>

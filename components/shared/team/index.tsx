@@ -1,3 +1,8 @@
+"use client";
+
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image, { StaticImageData } from "next/image";
 import TeamMember1 from "@/public/ulkukocturk.jpeg";
 import TeamMember2 from "@/public/mehmetsahin.jpeg";
@@ -110,11 +115,61 @@ const team = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 const TeamSection = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headingRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (!sectionRef.current) return;
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // Başlık reveal
+        gsap.fromTo(
+          Array.from(headingRef.current!.children),
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+
+        // Kart stagger reveal
+        gsap.fromTo(
+          ".team-card-item",
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".team-cards-grid",
+              start: "top 78%",
+              once: true,
+            },
+          }
+        );
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="bg-brand-cream" id="team">
+    <section ref={sectionRef} className="bg-brand-cream" id="team">
       <div className="mx-auto max-w-360 flex flex-col p-8 gap-y-10">
-        <div className="text-center space-y-6 max-w-2xl mx-auto">
+        <div ref={headingRef} className="text-center space-y-6 max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-brand-navy capitalize">Ekibimiz</h2>
           <p className="text-gray-700">
             Profesyonel ve deneyimli ekibimizle tanışın. Hukukun farklı alanlarında
@@ -123,12 +178,11 @@ const TeamSection = () => {
           </p>
         </div>
 
-        {/* 2-2-2-1 düzeni */}
-        <div className="flex flex-col gap-8">
-          {/* ROW 1 – 2 kart (Kurucu Avukatlar) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[team[0], team[1]].map((member) => (
-              <div key={member.name} className="max-w-xs w-full mx-auto">
+        {/* mobil: 1 sütun | md: 2-2-2-1 | xl+: 3-3-1 */}
+        <div className="flex flex-col gap-8 team-cards-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+            {team.slice(0, 6).map((member) => (
+              <div key={member.name} className="max-w-xs w-full team-card-item">
                 <TeamCard
                   title={member.name}
                   position={member.position}
@@ -139,37 +193,8 @@ const TeamSection = () => {
             ))}
           </div>
 
-          {/* ROW 2 – 2 kart */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[team[2], team[3]].map((member) => (
-              <div key={member.name} className="max-w-xs w-full mx-auto">
-                <TeamCard
-                  title={member.name}
-                  position={member.position}
-                  cover={member.image}
-                  objectPosition={member.objectPosition}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* ROW 3 – 2 kart */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[team[4], team[5]].map((member) => (
-              <div key={member.name} className="max-w-xs w-full mx-auto">
-                <TeamCard
-                  title={member.name}
-                  position={member.position}
-                  cover={member.image}
-                  objectPosition={member.objectPosition}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* ROW 4 – 1 kart */}
           <div className="flex justify-center">
-            <div className="max-w-xs w-full">
+            <div className="max-w-xs w-full team-card-item">
               <TeamCard
                 title={team[6].name}
                 position={team[6].position}
