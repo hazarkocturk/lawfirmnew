@@ -41,7 +41,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <Image
           src={img}
-          alt="hero background"
+          alt="Koçtürk & Şahin Hukuk Bürosu — Ankara Çankaya avukatlık ofisi"
           fill
           priority
           className="object-cover"

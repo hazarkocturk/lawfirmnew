@@ -66,7 +66,7 @@ const Navbar = () => {
       <div className="sticky top-0 z-50 bg-brand-white/90 backdrop-blur-xl">
         <div className="max-w-360 mx-auto relative">
           <header className="flex items-center justify-between px-8">
-            <Link href="#" aria-label="Homepage">
+            <Link href="/" aria-label="Anasayfa">
               <Logo />
             </Link>
 

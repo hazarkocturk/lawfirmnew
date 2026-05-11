@@ -14,7 +14,7 @@ const FooterBlock = () => {
           <div className="grid gap-10 lg:grid-cols-2 items-start">
             {/* Sol blok */}
             <div className="flex flex-col space-y-6">
-              <Link href="#" aria-label="Homepage" className="inline-flex">
+              <Link href="/" aria-label="Anasayfa" className="inline-flex">
                 <Logo />
               </Link>
 

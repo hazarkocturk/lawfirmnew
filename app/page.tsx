@@ -10,13 +10,21 @@ import TeamSection from "@/components/shared/team";
 export default function Home() {
   return (
     <>
-    <Navbar />
-    <BackToTop />
-    <HeroSection />
-    <BlogSection />
-    <TeamSection />
-    <SendForm />
-    <FooterBlock />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-brand-gold focus:text-brand-navy focus:rounded focus:font-medium"
+      >
+        İçeriğe geç
+      </a>
+      <Navbar />
+      <BackToTop />
+      <main id="main-content">
+        <HeroSection />
+        <BlogSection />
+        <TeamSection />
+        <SendForm />
+      </main>
+      <FooterBlock />
     </>
   );
 }
