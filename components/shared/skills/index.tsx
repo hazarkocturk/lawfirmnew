@@ -218,16 +218,17 @@ const BlogSection = () => {
           </div>
 
           <Carousel
-            opts={{ loop: true, containScroll: "trimSnaps" }}
+            opts={{ loop: true }}
             plugins={[
               Autoplay({
                 delay: 2500,
+                stopOnMouseEnter: true,
               }),
             ]}
-            className="w-full relative"
+            className="w-full relative px-10"
           >
-            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-20 border-brand-gold/40 text-brand-navy hover:bg-brand-gold/15" />
-            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-20 border-brand-gold/40 text-brand-navy hover:bg-brand-gold/15" />
+            <CarouselPrevious className="left-0 border-brand-gold/40 text-brand-navy hover:bg-brand-gold/15" />
+            <CarouselNext className="right-0 border-brand-gold/40 text-brand-navy hover:bg-brand-gold/15" />
 
             <CarouselContent>
               {posts.map((post) => (
