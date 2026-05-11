@@ -1,12 +1,8 @@
 import Link from "next/link";
 import { Logo } from "../logo";
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
   MapPinPlusInside,
   PhoneCall,
-  Twitter,
 } from "lucide-react";
 
 const FooterBlock = () => {
@@ -40,36 +36,6 @@ const FooterBlock = () => {
                   <span>+90 312 435 68 86</span>
                 </Link>
 
-                <div className="flex items-center gap-x-4 pt-2">
-                  <Link
-                    href="#"
-                    aria-label="Facebook"
-                    className="transition hover:text-brand-gold"
-                  >
-                    <Facebook />
-                  </Link>
-                  <Link
-                    href="#"
-                    aria-label="Twitter"
-                    className="transition hover:text-brand-gold"
-                  >
-                    <Twitter />
-                  </Link>
-                  <Link
-                    href="#"
-                    aria-label="LinkedIn"
-                    className="transition hover:text-brand-gold"
-                  >
-                    <Linkedin />
-                  </Link>
-                  <Link
-                    href="#"
-                    aria-label="Instagram"
-                    className="transition hover:text-brand-gold"
-                  >
-                    <Instagram />
-                  </Link>
-                </div>
               </div>
             </div>
 

@@ -5,6 +5,7 @@ import TeamMember3 from "@/public/aysegulbulutsahin.jpeg";
 import TeamMember4 from "@/public/beyzaarslan.jpeg";
 import TeamMember5 from "@/public/arzudenizkir.jpeg";
 import TeamMember6 from "@/public/elifbilal.jpg";
+import TeamMember7 from "@/public/hazarkocturk.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 
 export interface Member {
@@ -72,6 +73,12 @@ const team = [
     objectPosition: "50% 25%",
   },
   {
+    image: TeamMember7,
+    name: "Hazar Koçtürk",
+    position: "Kurucu Avukat",
+    objectPosition: "50% 20%",
+  },
+  {
     image: TeamMember2,
     name: "Mehmet Şahin",
     position: "Kurucu Avukat",
@@ -116,23 +123,25 @@ const TeamSection = () => {
           </p>
         </div>
 
-        {/* 1-2-2-1 düzeni */}
+        {/* 2-2-2-1 düzeni */}
         <div className="flex flex-col gap-8">
-          {/* ROW 1 – 1 kart */}
-          <div className="flex justify-center">
-            <div className="max-w-xs w-full">
-              <TeamCard
-                title={team[0].name}
-                position={team[0].position}
-                cover={team[0].image}
-                objectPosition={team[0].objectPosition}
-              />
-            </div>
+          {/* ROW 1 – 2 kart (Kurucu Avukatlar) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[team[0], team[1]].map((member) => (
+              <div key={member.name} className="max-w-xs w-full mx-auto">
+                <TeamCard
+                  title={member.name}
+                  position={member.position}
+                  cover={member.image}
+                  objectPosition={member.objectPosition}
+                />
+              </div>
+            ))}
           </div>
 
           {/* ROW 2 – 2 kart */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[team[1], team[2]].map((member) => (
+            {[team[2], team[3]].map((member) => (
               <div key={member.name} className="max-w-xs w-full mx-auto">
                 <TeamCard
                   title={member.name}
@@ -146,7 +155,7 @@ const TeamSection = () => {
 
           {/* ROW 3 – 2 kart */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[team[3], team[4]].map((member) => (
+            {[team[4], team[5]].map((member) => (
               <div key={member.name} className="max-w-xs w-full mx-auto">
                 <TeamCard
                   title={member.name}
@@ -162,10 +171,10 @@ const TeamSection = () => {
           <div className="flex justify-center">
             <div className="max-w-xs w-full">
               <TeamCard
-                title={team[5].name}
-                position={team[5].position}
-                cover={team[5].image}
-                objectPosition={team[5].objectPosition}
+                title={team[6].name}
+                position={team[6].position}
+                cover={team[6].image}
+                objectPosition={team[6].objectPosition}
               />
             </div>
           </div>

@@ -1,12 +1,8 @@
 "use client";
 
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
   Mail,
   PhoneCall,
-  Twitter,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -50,37 +46,19 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="flex items-center gap-x-4">
-            {/* Linklerin hazır değilse boş bırakma: # koy */}
-            <Link
-              href="#"
-              aria-label="Facebook"
-              className="duration-300 ease-linear hover:text-brand-gold"
-            >
-              <Facebook />
-            </Link>
-            <Link
-              href="#"
-              aria-label="Twitter"
-              className="duration-300 ease-linear hover:text-brand-gold"
-            >
-              <Twitter />
-            </Link>
-            <Link
-              href="#"
+          <Link
+              href="https://www.linkedin.com/company/kocturk-sahin-law-office"
               aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
               className="duration-300 ease-linear hover:text-brand-gold"
             >
-              <Linkedin />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
             </Link>
-            <Link
-              href="#"
-              aria-label="Instagram"
-              className="duration-300 ease-linear hover:text-brand-gold"
-            >
-              <Instagram />
-            </Link>
-          </div>
         </div>
       </section>
 
