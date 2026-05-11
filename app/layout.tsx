@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Ankara Avukat | Koçtürk & Şahin Hukuk Bürosu",
   description:
-    "Ankara Çankaya'da ceza, aile, iş ve gayrimenkul hukuku alanlarında hizmet veren Koçtürk & Şahin Hukuk Bürosu — bireysel ve kurumsal hukuki danışmanlık.",
+    "Ankara Koçtürk & Şahin Hukuk Bürosu — ceza, aile, iş ve gayrimenkul hukuku alanlarında uzman avukat kadrosuyla hukuki danışmanlık ve dava takibi.",
   openGraph: {
     type: "website",
     locale: "tr_TR",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Koçtürk & Şahin Hukuk Bürosu",
     title: "Ankara Avukat | Koçtürk & Şahin Hukuk Bürosu",
     description:
-      "Ankara Çankaya'da ceza, aile, iş ve gayrimenkul hukuku alanlarında hizmet veren Koçtürk & Şahin Hukuk Bürosu — bireysel ve kurumsal hukuki danışmanlık.",
+      "Ankara Koçtürk & Şahin Hukuk Bürosu — ceza, aile, iş ve gayrimenkul hukuku alanlarında uzman avukat kadrosuyla hukuki danışmanlık ve dava takibi.",
     images: [
       {
         url: "/hero-section.jpeg",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ankara Avukat | Koçtürk & Şahin Hukuk Bürosu",
     description:
-      "Ankara Çankaya'da ceza, aile, iş ve gayrimenkul hukuku alanlarında hizmet veren Koçtürk & Şahin Hukuk Bürosu — bireysel ve kurumsal hukuki danışmanlık.",
+      "Ankara Koçtürk & Şahin Hukuk Bürosu — ceza, aile, iş ve gayrimenkul hukuku alanlarında uzman avukat kadrosuyla hukuki danışmanlık ve dava takibi.",
     images: ["/hero-section.jpeg"],
   },
   alternates: {
