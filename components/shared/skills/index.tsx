@@ -46,6 +46,7 @@ import img_katmulkiyeti from "@/public/hukuk sitesi fotolari/kat-mulkiyeti.jpg";
 import img_sendika from "@/public/hukuk sitesi fotolari/sendika.jpg";
 import img_fikri from "@/public/hukuk sitesi fotolari/fikri-sinai.jpg";
 import img_sigorta from "@/public/hukuk sitesi fotolari/sigorta.jpg";
+import img_idare from "@/public/hukuk sitesi fotolari/idare-hukuku.jpg";
 
 export interface Post {
   icon: JSX.Element;
@@ -183,6 +184,7 @@ const posts: Post[] = [
     icon: <LibraryBig />,
     title: "İdare Hukuku",
     description: "İdari işlemler, itirazlar ve davalar konusunda hukuki destek.",
+    cover: img_idare,
   },
   {
     icon: <Speech />,
